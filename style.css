@@ -1,0 +1,602 @@
+/* PRESETS */
+:root[data-theme="light"] {
+    --text: #12131c;
+    --background: #ecedf3;
+    --primary: #172169;
+    --secondary: #dfbae3;
+    --accent: #8c3d94;
+    --selected: #d53030;
+}
+
+:root[data-theme="dark"] {
+    --text: #e3e4ed;
+    --background: #0c0d13;
+    --primary: #96a0e8;
+    --secondary: #411c45;
+    --accent: #ba6bc2;
+    --selected: #d53030;
+}
+
+@font-face {
+    font-family: 'impact', sans-serif;
+    src: url('font/impact.ttf');
+}
+
+* {
+	color: var(--text);
+	font-family: 'Inter', sans-serif;
+	scroll-behavior: smooth;
+	scroll-padding-top: 7.5rem;
+	box-sizing: border-box;
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+html,
+body {
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	background-color: var(--background);
+	position: relative;
+}
+
+main {
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+	overflow-x: hidden;
+	min-height: calc(100vh - 5rem);
+}
+
+::selection {
+	background-color: var(--accent);
+}
+
+button,
+a {
+	cursor: pointer;
+}
+
+/* HEADER */
+.betterHeader {
+	font-family: 'Fjalla One', sans-serif;
+}
+
+.betterHeader .headerSpaceholder {
+	height: 5rem;
+	width: 100%;
+	position: relative;
+}
+
+.betterHeader .realHeader {
+	background-color: var(--primary);
+	height: 5rem;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	flex-wrap: nowrap;
+	z-index: 5;
+}
+
+.betterHeader .logoLink {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	margin-left: 1rem;
+	text-decoration: none;
+	left: 0;
+	padding: 0.05rem 0.5rem;
+	position: absolute;
+	z-index: 2;
+	border-radius: 10px;
+	outline: 0px solid black;
+	transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out, outline-offset 0.3s ease-in-out;
+	outline-offset: -10px;
+
+	color: var(--secondary);
+}
+
+.betterHeader .logoLink svg {
+	position: relative;
+	height: 2rem;
+	width: 2rem;
+	margin-right: 0.25rem;
+	transition: fill 0.3s ease-in-out;
+	fill: var(--secondary);
+}
+
+.betterHeader .logoLink h2 {
+	position: relative;
+	color: var(--secondary);
+	white-space: nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: max(1.2rem, 3.15vw);
+	font-family: 'Fjalla One', sans-serif;
+	margin: 0;
+	margin-bottom: 0.125rem;
+}
+
+.betterHeader .logoLink:hover {
+	transform: scale(1.1);
+}
+
+.betterHeader .logoLink:hover h2 {
+	color: var(--selected);
+}
+
+
+.betterHeader .logoLink:hover svg {
+	fill: var(--selected);
+}
+
+
+.betterHeader .logoLink:focus-visible {
+	outline: 2px solid var(--selected);
+	outline-offset: 5px;
+	transform: scale(1.1);
+}
+
+.betterHeader .logoLink:focus-visible h2 {
+	color: var(--selected);
+}
+
+
+.betterHeader .logoLink:focus-visible svg {
+	fill: var(--selected);
+}
+
+.betterHeader .navBar {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	margin: 0rem 1rem;
+	position: relative;
+	height: 100%;
+
+	background-color: var(--primary);
+}
+
+.betterHeader .navBar .distanceChecker {
+	position: relative;
+	height: 100%;
+	width: 2rem;
+	opacity: 0;
+}
+
+.betterHeader .navBar .spaceHolder {
+	position: relative;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+
+.betterHeader .navBar .spaceHolder .openNav {
+	position: absolute;
+	width: max(1.2rem, 3.5vw);
+	height: max(1.2rem, 3.5vw);
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	border-radius: 100%;
+	outline: 0px solid black;
+	outline-offset: -10px;
+	transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out, outline-offset 0.3s ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.25rem;
+}
+
+.betterHeader .navBar .spaceHolder .openNav svg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	transition: fill 0.3s ease-in-out;
+	fill: var(--secondary);
+	outline: 0px solid black;
+	outline-offset: -10px;
+	border-radius: 100%;
+	transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out, outline-offset 0.3s ease-in-out, fill 0.3s ease-in-out;
+}
+
+.betterHeader .navBar .spaceHolder .openNav .hamburger {
+	opacity: 1;
+}
+
+.betterHeader .navBar .spaceHolder .openNav .close {
+	opacity: 0;
+}
+
+.betterHeader .navBar .spaceHolder .openNav:hover svg {
+	fill: var(--selected);
+	transform: scale(1.1);
+}
+
+.betterHeader .navBar .spaceHolder .openNav:focus-visible svg {
+	fill: var(--selected);
+	outline: 2px solid var(--selected);
+	outline-offset: 4px;
+}
+
+.betterHeader .navBar ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 0;
+	list-style: none;
+	height: 100%;
+	margin: 0;
+	position: relative;
+	background-color: var(--primary);
+	z-index: 3;
+}
+
+.betterHeader .navBar[data-expanded="true"] .spaceHolder .openNav {
+	visibility: hidden;
+}
+
+.betterHeader .navBar[data-expanded="false"] .spaceHolder .openNav {
+	visibility: visible;
+}
+
+.betterHeader .navBar[data-expanded="true"] ul {
+	position: relative;
+	opacity: 1 !important;
+}
+
+.betterHeader .navBar[data-expanded="false"] ul {
+	position: absolute;
+	top: 100%;
+}
+
+.betterHeader .navBar[data-expanded="false"] ul[data-open="false"] {
+	display: none;
+}
+
+.betterHeader .navBar ul[data-open="true"] {
+	opacity: 1;
+	right: -1rem;
+	width: 100vw;
+	flex-wrap: wrap;
+}
+
+.betterHeader .navBar ul[data-open="false"] {
+	opacity: 0;
+}
+
+.betterHeader .navBar ul {
+	position: absolute;
+}
+
+.betterHeader .navBar ul li {
+	white-space: nowrap;
+	width: max-content;
+	padding: 0rem 0.5rem;
+}
+
+.betterHeader .navBar ul li a {
+	font-family: 'Fjalla One', sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--secondary);
+	border-radius: 10px;
+	outline: 0px solid rgba(0, 0, 0, 0);
+	outline-offset: -10px;
+	transition: outline 0.3s ease-in-out, padding 0.3s ease-in-out, font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out, outline-offset 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.betterHeader .navBar ul li a:hover {
+	color: var(--selected);
+	font-size: larger;
+	font-weight: bolder;
+}
+
+.betterHeader .navBar ul li a:focus-visible {
+	color: var(--selected);
+	font-size: larger;
+	font-weight: bolder;
+	outline: 2px solid var(--selected);
+	outline-offset: 0px;
+	padding: 0.5rem;
+}
+
+/* COLOR MODE */
+#colorMode {
+	position: fixed;
+	width: 1.5rem;
+	height: 1.5rem;
+	background-color: var(--secondary);
+	overflow: hidden;
+	border: 2px solid var(--text);
+	border-radius: 5px;
+	bottom: 1rem;
+	left: 1rem;
+	z-index: 5;
+	outline: 0px solid black;
+	transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out, outline-offset 0.3s ease-in-out;
+	outline-offset: -10px;
+}
+
+#colorMode svg {
+	position: absolute;
+	width: 70%;
+	height: 70%;
+	left: 15%;
+	top: 15%;
+	fill: var(--text);
+	background-color: transparent;
+	transition: transform 0.3s ease-in-out;
+}
+
+:root[data-theme="light"] #colorMode #moonIcon {
+	transform: translateY(3rem);
+}
+
+:root[data-theme="dark"] #colorMode #sunIcon {
+	transform: translateY(3rem);
+}
+
+#colorMode:hover svg,
+#colorMode:focus-visible svg {
+	fill: var(--selected);
+}
+
+#colorMode:focus-visible {
+	outline: 3px solid var(--selected);
+	outline-offset: 3px;
+}
+
+/* MEME DISPLAY */
+.memeDisplay {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    border: 2px solid var(--text);
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.memeDisplay #imageDisplay {
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    overflow: hidden;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.memeDisplay #topText {
+    font-family: 'impact', sans-serif;
+    position: absolute;
+    width: 100%;
+    font-size: 2.5rem;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    -webkit-text-stroke: 0.05rem #000000;
+    margin: 0;
+    padding: 0.2rem 1rem;
+    text-align: center;
+}
+
+.memeDisplay #bottomText {
+    font-family: 'impact', sans-serif;
+    position: absolute;
+    width: 100%;
+    font-size: 2.5rem;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    -webkit-text-stroke: 0.05rem #000000;
+    margin: 0;
+    padding: 0.2rem 1rem;
+    text-align: center;
+}
+
+.memeDisplay #imagePreview {
+    position: relative;
+    z-index: 1;
+}
+
+.memeDisplay #imagePreview img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.memeDisplay #imageControls {
+    position: relative;
+    border-top: 2px solid var(--text);
+    height: 100%;
+    width: 100%;
+}
+
+.memeDisplay #imageControls form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.memeDisplay #imageControls form input[type='file'] {
+    display: none;
+}
+
+.memeDisplay #imageControls form input[type='color'] {
+    inline-size: 55px
+}
+
+.memeDisplay #imageControls form #imageFileText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--background);
+    border: 2px solid var(--text);
+    color: var(--text);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.memeDisplay #imageControls form #imageFileText:hover {
+	background-color: var(--accent);
+    color: var(--background);
+    border: 2px solid transparent;
+}
+
+.memeDisplay #imageControls form #imageFileText:focus-visible {
+	outline: 3px solid var(--selected);
+    outline-offset: 2px;
+}
+
+
+
+.memeDisplay #imageControls form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.memeDisplay #imageControls form input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    background-color: var(--background);
+    border: 2px solid var(--text);
+    color: var(--text);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.memeDisplay #imageControls form input:focus-visible {
+	outline: 3px solid var(--selected);
+    outline-offset: 2px;
+}
+
+.memeDisplay #imageControls form .inputRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.memeDisplay #imageControls form .inputSet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    flex-wrap: wrap;
+}
+
+.memeDisplay #imageControls form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--background);
+    border: 2px solid var(--text);
+    color: var(--text);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+.memeDisplay #imageControls form button:hover {
+	background-color: var(--accent);
+    color: var(--background);
+    border: 2px solid transparent;
+}
+
+.memeDisplay #imageControls form button:focus-visible {
+	outline: 3px solid var(--selected);
+    outline-offset: 2px;
+}
+
+.aboutScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+.aboutScreen .textContent {
+    max-width: 90%;
+    padding: 2rem;
+    border-radius: 25px;
+    border: 3px solid var(--text);
+    width: fit-content;
+}
+
+.aboutScreen .textContent h1 {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: max(5vmin, 1.5rem);
+}
+
+/* TEXT CONTENT */
+.textContent {
+	max-width: 90%;
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.textContent h2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: max(4vmin, 1.25rem);
+	padding: 0.5rem;
+	width: fit-content;
+	margin: 1rem auto;
+	text-align: center;
+}
+
+.textContent a {
+	text-decoration: none;
+	color: var(--accent);
+	font-weight: bold;
+    transition: transform 0.3s ease-in-out, outline 0.3s ease-in-out, outline-offset 0.3s ease-in-out, color 0.3s ease-in-out;
+    outline: 0px solid black;
+    border-radius: 5px
+}
+
+.textContent a:hover {
+	color: var(--selected);
+}
+
+.textContent a:focus-visible {
+    color: var(--selected);
+    outline: 3px solid var(--selected);
+    outline-offset: 2px;
+}
