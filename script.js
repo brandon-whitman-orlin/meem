@@ -58,3 +58,27 @@ function displayBottomText(text) {
     var bottomText = document.getElementById("bottomText");
     bottomText.innerHTML = text.value;
 }
+
+function changeTextSize(slider) {
+    const multiplier = parseInt(slider.value) / 100;
+    const multipliedValue = 2.5 * multiplier;
+
+    const topText = document.getElementById("topText");
+    const bottomText = document.getElementById("bottomText");
+
+    topText.style.fontSize = `${multipliedValue}rem`;
+    bottomText.style.fontSize = `${multipliedValue}rem`;
+}
+
+function capsTransform(checkbox) {
+    const topText = document.getElementById("topText");
+    const bottomText = document.getElementById("bottomText");
+
+    if (checkbox.checked) {
+        topText.style.textTransform = "uppercase";
+        bottomText.style.textTransform = "uppercase";
+    } else {
+        topText.style.textTransform = "none";
+        bottomText.style.textTransform = "none";
+    }
+}

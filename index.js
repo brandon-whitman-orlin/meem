@@ -28,7 +28,6 @@ function screenshot() {
     if (canvas.width === 0 && canvas.height === 0) {
       alert("No image to download.");
     } else {
-      document.body.appendChild(canvas);
       downloadURI(
         canvas.toDataURL("image/png"),
         "meme.png"

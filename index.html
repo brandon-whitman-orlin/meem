@@ -10,7 +10,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		<link rel="icon" type="image/x-icon" href="/assets/affirmental.ico">
+		<link rel="icon" type="image/x-icon" href="/assets/meemlogo.ico">
 		<title>Meem</title>
 	</head>
 	<body>
@@ -94,13 +94,23 @@
             <div class="inputRow">
               <div class="inputSet">
                 <label for="topTextInput">Top Text:</label>
-                <input type="text" id="topTextInput" name="topTextInput" oninput="displayTopText(this)">  
+                <input type="text" id="topTextInput" name="topTextInput" oninput="displayTopText(this);">  
               </div>
               <div class="inputSet">
                 <label for="bottomTextInput">Bottom Text:</label>
                 <input type="text" id="bottomTextInput" name="bottomTextInput" oninput="displayBottomText(this)">
               </div>
             </div>
+			<div class="inputRow">
+				<div class="inputSet">
+					<label for="transparentBG">Capitalize Text:</label>
+					<input type="checkbox" id="transparentBG" name="transparentBG" checked onclick="capsTransform(this)"/>
+				</div>
+				<div class="inputSet">
+					<label for="textSize">Text Size:</label>
+					<input type="range" id="textSize" min="50" max="150" value="100" name="textSize" oninput="changeTextSize(this)">  
+				</div>
+			  </div>
             <div class="inputRow">
               <div class="inputSet">
                 <label for="transparentBG">Transparent Background:</label>
@@ -108,7 +118,7 @@
               </div>
               <div class="inputSet">
                 <label for="bgColor">Background Color:</label>
-                <input type="color" id="bgColor" name="bgColor" value="#e66465"/>
+                <input type="color" id="bgColor" name="bgColor" value="#ffffff"/>
               </div>
             </div>
             <button type="button" onclick="screenshot()">Download</button>
